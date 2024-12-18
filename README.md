@@ -30,5 +30,5 @@
 ### Dokumento generavimas
 1. Atsisiųskite projektą:
    ```bash
-   git clone https://github.com/BUntulis/KA---Architekt-r-palyginimas-MCS-151-tarp-MCS-251.git
+   git clone https://github.com/BUntulis/MCS-151-ir-MCS-251-Palyginimas.git
    cd KA---Architekt-r-palyginimas-MCS-151-tarp-MCS-251
