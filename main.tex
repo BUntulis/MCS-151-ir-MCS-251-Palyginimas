@@ -1,7 +1,29 @@
-\documentclass{article}
+\documentclass[a4paper,12pt]{article}
 \usepackage{graphicx} % Required for inserting images
+\usepackage{fancyhdr} % Required for customizing headers and footers
+\usepackage{titlesec} % For better section titles
+\usepackage{geometry} % For page layout
+\usepackage{enumitem} % For better list formatting
+\usepackage[lithuanian]{babel}
+\geometry{margin=1in}
 
-\title{KA - Architektūrų palyginimas MCS-151 tarp MCS-251}
+\pagestyle{fancy} % Activate the fancy page style
+\fancyhf{} % Clear default settings
+\fancyfoot[C]{\thepage} % Center the page number in the footer
+\fancyfoot[L]{Benas Untulis - MCS-151 / MCS-251} % Left-aligned footer text
+\fancyfoot[R]{2024-12-18} % Right-aligned footer text
+
+\renewcommand{\headrulewidth}{0pt} % Remove header line
+\renewcommand{\footrulewidth}{0.4pt} % Add footer line
+\renewcommand{\contentsname}{Turinys}
+
+\title{ % Rankinis centravimas su \centering
+    \centering
+    \vspace{-1cm} % Reguliuoja tarpus virš logotipo
+    \includegraphics[width=0.25\textwidth]{vu_logo.png} \\ % Vilniaus universiteto logotipas
+    \vspace{0,2cm} % Atstumas tarp logotipo ir pavadinimo
+    Architektūrų palyginimas: MCS-151 ir MCS-251
+}
 \author{Benas Untulis}
 \date{2024-12-18}
 
@@ -9,116 +31,164 @@
 
 \maketitle
 
+\tableofcontents
+\newpage
+
 \section{Elementinė kompiuterio/procesoriaus bazė}
-\chapter{\normalfont{
-\textbf{MCS-151} procesorius buvo pagamintas naudojant labai didelio integracijos masto (VLSI) integrinius grandynus, kurie leido sumažinti dydį ir energijos suvartojimą. Fizinis įrenginys buvo kompaktiškas ir lengvas, palyginti su senesnėmis architektūromis, sunaudodamas minimalų energijos kiekį (tipiškai apie 1 W).\newline\newline
+\subsection{MCS-151}
+\textbf{MCS-151} procesorius buvo pagamintas naudojant labai didelio integracijos masto (VLSI) integrinius grandynus, kurie leido sumažinti dydį ir energijos suvartojimą. Fizinis įrenginys buvo kompaktiškas ir lengvas, palyginti su senesnėmis architektūromis, sunaudodamas minimalų energijos kiekį (tipiškai apie 1 W).
+
+\subsection{MCS-251}
 \textbf{MCS-251} buvo patobulintas MCS-151 variantas, sukurtas naudojant modernias integrinio grandyno technologijas (VLSI arba monokristalinius procesorius). Jo pagrindinė bazė suteikė geresnį efektyvumą, didesnį greitį ir mažesnį energijos suvartojimą. Energijos sunaudojimas buvo dar efektyvesnis už pirmtaką.
-}
+
+
  
 \section{Architektūros tipas}
-\chapter{\normalfont{
-\textbf{MCS-151} buvo registrinės architektūros procesorius su pagrindiniais registrų rinkiniais, leidžiančiais efektyviai manipuliuoti duomenimis. Architektūra taip pat palaikė akumuliatoriaus (accumulator-based) dizainą, naudojamą pagrindinei aritmetikai ir duomenų judėjimui.\newline\newline
+\subsection{MCS-151}
+\textbf{MCS-151} buvo registrinės architektūros procesorius su pagrindiniais registrų rinkiniais, leidžiančiais efektyviai manipuliuoti duomenimis. Architektūra taip pat palaikė akumuliatoriaus (accumulator-based) dizainą, naudojamą pagrindinei aritmetikai ir duomenų judėjimui.
+
+\subsection{MCS-251}
 \textbf{MCS-251} buvo registrinė architektūra, bet turėjo platesnį komandų rinkinį ir geriau išnaudojamą atmintį, lyginant su pirmtaku. Patobulinti registrai leido lengviau kurti sudėtingesnes programas.
-}
+
+\newpage
 
 \section{Adresavimo schemos}
-\chapter{\normalfont{
-\textbf{MCS-151} buvo vieno adreso mašina, kurioje dauguma komandų naudojo akumuliatorių kaip pagrindinį operandą.\newline\newline
+\subsection{MCS-151}
+\textbf{MCS-151} buvo vieno adreso mašina, kurioje dauguma komandų naudojo akumuliatorių kaip pagrindinį operandą.
+
+\subsection{MCS-251}
 \textbf{MCS-251} palaikė dviejų adresų modelį, kuris leido efektyviau valdyti duomenų judėjimą ir sumažino komandų vykdymo ciklų skaičių.
-}
+
+
 
 \section{Registrai}
-\chapter{\normalfont{
-\textbf{MCS-151} turėjo specializuotus registrus, tokius kaip akumuliatorius (ACC), B registras (daugybos ir dalybos operacijoms), bei papildomus specializuotus registrus (DPTR, PSW).\newline\newline
+\subsection{MCS-151}
+\textbf{MCS-151} turėjo specializuotus registrus, tokius kaip akumuliatorius (ACC), B registras (daugybos ir dalybos operacijoms), bei papildomus specializuotus registrus (DPTR, PSW).
+
+\subsection{MCS-251}
 \textbf{MCS-251} padidino registrų skaičių ir pločį. Jis palaikė daugiau bendros paskirties registrų bei efektyvesnį duomenų pločį (16 bitų, palyginti su 8 bitais MCS-151).
 
-}
+\newpage
  
 \section{Požymių bitai}
-\chapter{\normalfont{\textbf{Atsakymas:}\newline 
-\textbf{MCS-151} naudojami požymių bitai (flag bits) aritmetiniams ir loginėms operacijoms. Jie buvo saugomi PSW (Program Status Word) registre.\newline\newline
+\subsection{MCS-151}
+\textbf{MCS-151} naudojami požymių bitai (flag bits) aritmetiniams ir loginėms operacijoms. Jie buvo saugomi PSW (Program Status Word) registre.
+
+\subsection{MCS-251}
 \textbf{MCS-251} turėjo išsamesnius požymių bitus, kurie leido sudėtingesnėms programoms veikti efektyviau. Nauji požymiai optimizavo vykdymo takus.
 
-}
+
  
 \section{Duomenų plotis}
-\chapter{\normalfont{
-\textbf{MCS-151} mašininis žodis buvo 8 bitų.\newline\newline
+\subsection{MCS-151}
+\textbf{MCS-151} mašininis žodis buvo 8 bitų.
+
+\subsection{MCS-251}
 \textbf{MCS-251} palaikė 16 bitų mašininį žodį, kas padidino greitį ir efektyvumą apdorojant duomenis.
-}
  
 \section{Atminties struktūra}
-\chapter{\normalfont{
-\textbf{MCS-151} naudojo išdėstymą, kur pagrindinė ir periferinė atmintis buvo segmentuota. Maksimalus adresuojamas atminties dydis buvo iki 64 KB.\newline\newline
+\subsection{MCS-151}
+\textbf{MCS-151} naudojo išdėstymą, kur pagrindinė ir periferinė atmintis buvo segmentuota. Maksimalus adresuojamas atminties dydis buvo iki 64 KB.
+
+\subsection{MCS-251}
 \textbf{MCS-251} atminties adresavimas buvo lankstesnis, palaikantis iki 16 MB atminties su segmentuotu ir puslapių modeliu.
-}
+
+\newpage
  
 \section{Virtualioji atmintis}
-\chapter{\normalfont{
-\textbf{MCS-151} nepalaikė virtualiosios atminties.\newline\newline
+\subsection{MCS-151}
+\textbf{MCS-151} nepalaikė virtualiosios atminties.
+
+\subsection{MCS-251}
 \textbf{MCS-251} realizavo paprastą virtualiosios atminties palaikymą naudodamas segmentavimą, kuris leido efektyviau išnaudoti dideles atminties talpas.
-}
+
  
 \section{Komandų sistema}
-\chapter{\normalfont{
-\textbf{MCS-151} turėjo 111 instrukcijų, kurios apėmė pagrindines aritmetikos, loginės, duomenų judėjimo ir valdymo instrukcijas.\newline\newline
+\subsection{MCS-151}
+\textbf{MCS-151} turėjo 111 instrukcijų, kurios apėmė pagrindines aritmetikos, loginės, duomenų judėjimo ir valdymo instrukcijas.
+
+\subsection{MCS-251}
 \textbf{MCS-251} įtraukė platesnį komandų rinkinį su papildomomis 16 bitų instrukcijomis, tokiomis kaip “MOVX A, @DPTR” ar “CJNE @Ri, data, rel”.
-}
+
+
  
 \section{Adresavimo būdai}
-\chapter{\normalfont{
-\textbf{MCS-151} palaikė tiesioginį, netiesioginį, momentinį ir santykinį adresavimą.\newline\newline
+\subsection{MCS-151}
+\textbf{MCS-151} palaikė tiesioginį, netiesioginį, momentinį ir santykinį adresavimą.
+
+\subsection{MCS-251}
 \textbf{MCS-251} pridėjo naujus adresavimo būdus, įskaitant segmentuotą ir puslapiuotą atminties modelį.
-}
+
+\newpage
  
 \section{Įvesties-išvesties galimybės}
-\chapter{\normalfont{
-\textbf{MCS-151} naudojosi tiesioginiu I/O per SFR (Special Function Registers) ir turėjo keletą periferinių įtaisų, tokių kaip UART ar laikmačiai.\newline\newline
+\subsection{MCS-151}
+\textbf{MCS-151} naudojosi tiesioginiu I/O per SFR (Special Function Registers) ir turėjo keletą periferinių įtaisų, tokių kaip UART ar laikmačiai.
+
+\subsection{MCS-251}
 \textbf{MCS-251} patobulino I/O funkcijas, leisdamas lengvesnį periferinių įrenginių valdymą su greitesniu duomenų perdavimu.
-}
+
+
  
 \section{Pertrauktys}
-\chapter{\normalfont{
-\textbf{MCS-151} palaikė 5 pertraukimų lygius su 2 prioritetais.\newline\newline
+\subsection{MCS-151}
+\textbf{MCS-151} palaikė 5 pertraukimų lygius su 2 prioritetais.
+
+\subsection{MCS-251}
 \textbf{MCS-251} padidino pertraukimų lygį iki 8 ir pridėjo daugiau prioritetų valdymo galimybių.
-}
+
+
  
 \section{Duomenų tipai}
-\chapter{\normalfont{
-\textbf{MCS-151} palaikė 8 bitų sveikuosius skaičius (dvejeto papildymas) ir loginę aritmetiką.\newline\newline
+\subsection{MCS-151}
+\textbf{MCS-151} palaikė 8 bitų sveikuosius skaičius (dvejeto papildymas) ir loginę aritmetiką.
+
+\subsection{MCS-251}
 \textbf{MCS-251} pridėjo 16 bitų ir slankiojo kablelio aritmetikos palaikymą.
-}
+
+\newpage
  
 \section{Greitaveika}
-\chapter{\normalfont{
-\textbf{MCS-151} veikė iki 12 MHz, o komandų vykdymo ciklai uſėmė nuo 1 iki 12 taktų. Tipinė greitaveika buvo apie 1 MIPS.\newline\newline
+\subsection{MCS-151}
+\textbf{MCS-151} veikė iki 12 MHz, o komandų vykdymo ciklai uſėmė nuo 1 iki 12 taktų. Tipinė greitaveika buvo apie 1 MIPS.
+
+\subsection{MCS-251}
 \textbf{MCS-251} pasiekė 20 MHz, sumažindamas vykdymo ciklų skaičių, kas padidino efektyvumą (iki 3 MIPS).
-}
+
+
  
 \section{Spartinančioji atmintis}
-\chapter{\normalfont{
-\textbf{MCS-151} nenaudojo spartinančiosios atminties.\newline\newline
+\subsection{MCS-151}
+\textbf{MCS-151} nenaudojo spartinančiosios atminties.
+
+\subsection{MCS-251}
 \textbf{MCS-251} turėjo maždaug 256 baitų spartinančiąją atmintį, skirtą greitesniam prieigai prie dažnai naudojamų duomenų.
-}
+
+
  
 \section{Tipinės taikymo sritys}
-\chapter{\normalfont{
-\textbf{MCS-151} buvo plačiai naudojamas įterptinėse sistemose, tokiose kaip buitinė technika, pramoniniai valdikliai.\newline\newline
+\subsection{MCS-151}
+\textbf{MCS-151} buvo plačiai naudojamas įterptinėse sistemose, tokiose kaip buitinė technika, pramoniniai valdikliai.
+
+\subsection{MCS-251}
 \textbf{MCS-251} buvo skirtas sudėtingesnėms įterptinėms programoms, pavyzdžiui, telekomunikacijoms ir realaus laiko valdymo sistemoms.
-}
+
+\newpage
  
 \section{Programinė įranga}
-\chapter{\normalfont{
-\textbf{MCS-151} turėjo palaikymą paprastiems asemblerio ir C kompiliatoriams.\newline\newline
+\subsection{MCS-151}
+\textbf{MCS-151} turėjo palaikymą paprastiems asemblerio ir C kompiliatoriams.
+
+\subsection{MCS-251}
 \textbf{MCS-251} pridėjo daugiau aukšto lygio kalbų palaikymo galimybių (C ir Pascal).
-}
+
+
  
 \section{Emuliatoriai}
-\chapter{\normalfont{
+\subsection{MCS-151 ir MCS-251}
 Abiejų architektūrų emuliatoriai yra prieinami, pvz.: Keil µVision.
-}
- 
 
+ 
 
 \section{Naudoti šaltiniai}
 \chapter{\normalfont{
